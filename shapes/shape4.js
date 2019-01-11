@@ -1,46 +1,49 @@
 function shape4() {
-  var length = 1, width = 1;
+  let length = 1.8, width = 1.8;
 
-  var shape = new THREE.Shape();
+  let shape = new THREE.Shape();
   shape.moveTo( 0,0 );
   shape.lineTo( 0, width );
   shape.lineTo( length, width );
   shape.lineTo( length, 0 );
   shape.lineTo( 0, 0 );
 
-  var extrudeSettings = {
-    steps: 2,
-    depth: 1,
+  let extrudeSettings = {
+    steps: 1,
+    depth: 1.8,
     bevelEnabled: true,
-    bevelThickness: 0.5,
-    bevelSize: 0.5,
+    bevelThickness: 0.1,
+    bevelSize: 0.1,
     bevelSegments: 1
   };
-  var group = new THREE.Group();
+  let group = new THREE.Group();
 
-  var geometry1 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-  var material1 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
-  var mesh1 = new THREE.Mesh( geometry1, material1 ) ;
+  let geometry1 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+  let material1 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
+  let mesh1 = new THREE.Mesh( geometry1, material1 );
+  mesh1.position.z = extrudeSettings.bevelSize;
+  mesh1.position.x = extrudeSettings.bevelSize;
   group.add( mesh1 );
 
-  var geometry2 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-  var material2 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
-  var mesh2 = new THREE.Mesh( geometry2, material2 ) ;
-  mesh2.position.z = extrudeSettings.depth + extrudeSettings.bevelSize;
+  let geometry2 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+  let material2 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
+  let mesh2 = new THREE.Mesh( geometry2, material2 ) ;
+  mesh2.position.z = extrudeSettings.depth + 3 * extrudeSettings.bevelSize;
+  mesh2.position.x = extrudeSettings.bevelSize;
   group.add( mesh2 );
 
-  var geometry3 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-  var material3 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
-  var mesh3 = new THREE.Mesh( geometry3, material3 ) ;
-  mesh3.position.z = extrudeSettings.depth + extrudeSettings.bevelSize;
-  mesh3.position.x = 2 * width;
+  let geometry3 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+  let material3 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
+  let mesh3 = new THREE.Mesh( geometry3, material3 ) ;
+  mesh3.position.z = extrudeSettings.depth + 3 * extrudeSettings.bevelSize;
+  mesh3.position.x = extrudeSettings.depth + 3 * extrudeSettings.bevelSize;
   group.add( mesh3);
 
-  var geometry4 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-  var material4 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
-  var mesh4 = new THREE.Mesh( geometry4, material4 ) ;
-  mesh4.position.z = 2 * extrudeSettings.depth + 2 * extrudeSettings.bevelSize;
-  mesh4.position.x = 2 * width;
+  let geometry4 = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+  let material4 = new THREE.MeshBasicMaterial( { color: 0xFFFF00 } );
+  let mesh4 = new THREE.Mesh( geometry4, material4 ) ;
+  mesh4.position.z = 2 * extrudeSettings.depth + 5 * extrudeSettings.bevelSize;
+  mesh4.position.x = extrudeSettings.depth + 3 * extrudeSettings.bevelSize;
   group.add( mesh4);
 
   let wireframe1 = new THREE.WireframeGeometry( geometry1 );
