@@ -24,7 +24,7 @@ function grid() {
   squareGeometry.faces.push(new THREE.Face3(0, 1, 2));
   squareGeometry.faces.push(new THREE.Face3(0, 2, 3));
 
-  for(let i = 0; i < 35; i++){
+  for(let i = 0; i < 60; i++){
     if( (i % bound) == 0 && i != 0) {
       initPosY += 2;
       initPosX = 1;
@@ -33,7 +33,7 @@ function grid() {
     initPosX += 2;
   }
 
-  for(let i = 0; i < 35; i++){
+  for(let i = 0; i < 60; i++){
     if( (i % bound) == 0 && i != 0) {
       initPosY2 += 2;
       initPosZ2 = 1;

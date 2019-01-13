@@ -2,24 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tetris 3D</title>
   <style>
+  #div {
+    display: inline-block;
+    margin-right: 10px;
+  }
   </style>
+  <title>Tetris 3D</title>
   <script src="three.min.js"></script>
   <script src="OrbitControls.js"></script>
 </head>
 <body>
   <div>
-    <div id="counter">Counter: </div>
-    <canvas id="canvas">
-    </canvas>
-  </div>
-  <script type="text/javascript" src="grid.js"></script>
-  <script type="text/javascript" src="shapes/shape1.js"></script>
-  <script type="text/javascript" src="shapes/shape2.js"></script>
-  <script type="text/javascript" src="shapes/shape3.js"></script>
-  <script type="text/javascript" src="shapes/shape4.js"></script>
-  <script type="text/javascript" src="shapes/shape5.js"></script>
-  <script type="text/javascript" src="tetris.js"></script>
+    <div id="div">
+      Select a mode:
+      <div >
+        <input type="radio" id="manual" value="1" checked onclick="manualFunction()">
+        <label for="manual">Manual</label>
+      </div>
+      <div >
+        <input type="radio" id="automatic" value="2" onclick="automaticFunction()">
+        <label for="automatic">Automatic</label>
+      </div>
+    </div>
+    <div id="div">
+        Key Controls:
+        <div> X - rotate around X-axis</div>
+        <div> Y - rotate around Y-axis</div>
+    </div>
+    <div id="div">
+        <div> Z - rotate around Z-axis</div>
+        <div>Left Arrow - move to the left</div>
+    </div>
+    <div id="div">
+        <div>Right Arrow - move to the right</div>
+        <div>Up Arrow - move forward</div>
+    </div>
+    <div id="div">
+        <div>Down Arrow - move backward</div>
+        <div> Space - fix piece in the playing field</div>
+    </div>
+    <div id="div">
+        <div> A - move down in the Z - direction </div>
+        <div> Q - move up in the Z - direction</div>
+    </div>
+  </p>
+  <div id="counter">Counter:</div>
+  <canvas id="canvas">
+  </canvas>
+</div>
+<script type="text/javascript" src="grid.js"></script>
+<script type="text/javascript" src="collisions.js"></script>
+<script type="text/javascript" src="shapes/shape1.js"></script>
+<script type="text/javascript" src="shapes/shape2.js"></script>
+<script type="text/javascript" src="shapes/shape3.js"></script>
+<script type="text/javascript" src="shapes/shape4.js"></script>
+<script type="text/javascript" src="shapes/shape5.js"></script>
+<script type="text/javascript" src="tetris.js"></script>
 </body>
 </html>

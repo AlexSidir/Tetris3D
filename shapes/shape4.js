@@ -66,5 +66,10 @@ function shape4() {
   line4.material.color.setHex(0x000000);
   mesh4.add(line4);
 
+  completeArray.push(mesh1);
+  completeArray.push(mesh2);
+  completeArray.push(mesh3);
+  completeArray.push(mesh4);
+
   return group;
 }
